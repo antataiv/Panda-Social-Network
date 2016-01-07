@@ -16,22 +16,10 @@ class Panda
   end
 
   def to_s
-    "#{name} is a #{gender} panda with emai: #{email}"
+    "#{name} is a #{gender} panda with email: #{email}"
   end
 
-  def equal_name(other_panda)
-    @name == other_panda.name
-  end
-
-  def equal_email(other_panda)
-    @email == other_panda.email
-  end
-
-  def equal_gender(other_panda)
-    @gender == other_panda.gender
-  end
-
-  def equals(other_panda)
-    equal_name(other_panda) && equal_email(other_panda) && equal_gender(other_panda)
+  def hash
+    to_s
   end
 end
