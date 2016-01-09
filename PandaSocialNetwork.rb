@@ -53,9 +53,6 @@ class PandaSocialNetwork
     return -1
   end
 
-  def are_connected(panda1, panda2)
-  end
-
   def how_many_gender_in_network(level, panda, gender)
     gender_count = 0
     @data.each do |panda, panda_friends|
