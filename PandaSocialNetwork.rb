@@ -61,6 +61,7 @@ class PandaSocialNetwork
     gender_count = 0
     @data.each do |panda, panda_friends|
       panda_friends.each { |subpanda, subfriends| gender_count += 1 if subfriends.gender == gender }
+      
     end
 
     gender_count
