@@ -41,15 +41,16 @@ class PandaSocialNetwork
 
     while queue.any?
       current_panda = queue.shift
-      current_panda.each do |panda|
+      @data[current_panda].each do |panda|
         next if visited.include?(panda)
         queue << panda
         visited << panda
-        connection_count += 1 if panda2 == panda
+        connection_count += 1
+        return connection_count if panda2 == panda
       end
     end
 
-    connection_count
+    return -1
   end
 
   def are_connected(panda1, panda2)
@@ -94,8 +95,8 @@ network.add_panda(tony)
 #puts network.has_panda(pesho)
 
 network.make_friends(ivo, rado)
-network.make_friends(ivo, tony)
-network.make_friends(pesho, rado)
+network.make_friends(rado, tony)
+#network.make_friends(tony, pesho)
 
 #true - Pesho is now added to the network, while being made friends with Rado
 #puts network.has_panda(pesho)
@@ -118,7 +119,8 @@ network.make_friends(pesho, rado)
 #network.friends_of(tony)
 #network.friends_of(pesho)
 
-network.connection_level(ivo, rado) == 1 # true
-network.connection_level(ivo, tony) == 2 # true
+puts network.connection_level(ivo, pesho)
+puts network.connection_level(ivo, rado) == 1 # true
+puts network.connection_level(ivo, tony) == 2 # true
 
 #network.how_many_gender_in_network(1, rado, "female")
