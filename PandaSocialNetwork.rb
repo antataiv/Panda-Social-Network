@@ -54,6 +54,7 @@ class PandaSocialNetwork
   end
 
   def are_connected(panda1, panda2)
+    connection_level(panda1, panda2) != -1
   end
 
   def how_many_gender_in_network(level, panda, gender)
@@ -95,8 +96,8 @@ network.add_panda(tony)
 #puts network.has_panda(pesho)
 
 network.make_friends(ivo, rado)
-network.make_friends(rado, tony)
-#network.make_friends(tony, pesho)
+network.make_friends(ivo, tony)
+network.make_friends(tony, pesho)
 
 #true - Pesho is now added to the network, while being made friends with Rado
 #puts network.has_panda(pesho)
@@ -119,8 +120,13 @@ network.make_friends(rado, tony)
 #network.friends_of(tony)
 #network.friends_of(pesho)
 
-puts network.connection_level(ivo, pesho)
-puts network.connection_level(ivo, rado) == 1 # true
-puts network.connection_level(ivo, tony) == 2 # true
+#puts network.connection_level(ivo, pesho)
+#puts network.connection_level(ivo, rado) == 1 # true
+#puts network.connection_level(ivo, tony) == 2 # true
+
+#puts network.are_connected(ivo, rado) #true
+#puts network.are_connected(ivo, tony) #false
+#puts network.are_connected(pesho, ivo) #false
+
 
 #network.how_many_gender_in_network(1, rado, "female")
