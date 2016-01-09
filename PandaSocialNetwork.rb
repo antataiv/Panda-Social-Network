@@ -15,7 +15,7 @@ class PandaSocialNetwork
   end
 
   def make_friends(panda1, panda2)
-    #TO DO...Throw exception PandasAlreadyFriends if they are already friends
+    raise "PandasAlreadyFriends" if are_friends(panda1,panda2)
     @data[panda1] = [] unless has_panda(panda1)
     @data[panda2] = [] unless has_panda(panda2)
 
@@ -96,6 +96,8 @@ network.add_panda(tony)
 
 network.make_friends(ivo, rado)
 network.make_friends(rado, tony)
+
+puts network.make_friends(ivo,rado)
 #network.make_friends(tony, pesho)
 
 #true - Pesho is now added to the network, while being made friends with Rado
