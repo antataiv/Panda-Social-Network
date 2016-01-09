@@ -24,9 +24,9 @@ class Panda
   end
 end
 
-ivo = Panda.new("Ivo", "ivo@pandamail.com", "male")
-ivo2 = Panda.new("Ivo", "ivo@pandamail.com", "male")
-
-puts ivo.hash
-puts ivo2.hash
-puts ivo.hash == ivo2.hash
+#ivo = Panda.new("Ivo", "ivo@pandamail.com", "male")
+#ivo2 = Panda.new("Ivo", "ivo@pandamail.com", "male")
+#
+#puts ivo.hash
+#puts ivo2.hash
+#puts ivo.hash == ivo2.hash
