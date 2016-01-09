@@ -65,12 +65,6 @@ class PandaSocialNetwork
 
     gender_count
   end
-
-  #def each
-  #  if block_given?
-  #    @data.each { |element| yield element }
-  #  end
-  #end
 end
 
 
@@ -78,11 +72,13 @@ end
 
 network = PandaSocialNetwork.new
 ivo = Panda.new("Ivo", "ivo@pandamail.com", "male")
+ivo2 = Panda.new("Ivo", "ivo@pandamail.com", "male")
 rado = Panda.new("Rado", "rado@pandamail.com", "male")
 tony = Panda.new("Tony", "tony@pandamail.com", "female")
 pesho = Panda.new("Pesho", "pesho@pandamail.com", "other")
 
 network.add_panda(ivo)
+#network.add_panda(ivo2)
 network.add_panda(rado)
 network.add_panda(tony)
 
@@ -127,6 +123,5 @@ network.make_friends(tony, pesho)
 #puts network.are_connected(ivo, rado) #true
 #puts network.are_connected(ivo, tony) #false
 #puts network.are_connected(pesho, ivo) #false
-
 
 #network.how_many_gender_in_network(1, rado, "female")
