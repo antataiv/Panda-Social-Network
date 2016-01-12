@@ -53,18 +53,15 @@ class PandaSocialNetwork
     return -1
   end
 
-<<<<<<< HEAD
-=======
   def are_connected(panda1, panda2)
     connection_level(panda1, panda2) != -1
   end
 
->>>>>>> 617a5cd2f858e1596b838fb22d78437e13395541
   def how_many_gender_in_network(level, panda, gender)
     gender_count = 0
     @data.each do |panda, panda_friends|
       panda_friends.each { |subpanda, subfriends| gender_count += 1 if subfriends.gender == gender }
-      
+
     end
 
     gender_count
@@ -96,15 +93,12 @@ network.add_panda(tony)
 #puts network.has_panda(pesho)
 
 network.make_friends(ivo, rado)
-<<<<<<< HEAD
 network.make_friends(rado, tony)
 
 puts network.make_friends(ivo,rado)
 #network.make_friends(tony, pesho)
-=======
 network.make_friends(ivo, tony)
 network.make_friends(tony, pesho)
->>>>>>> 617a5cd2f858e1596b838fb22d78437e13395541
 
 #true - Pesho is now added to the network, while being made friends with Rado
 #puts network.has_panda(pesho)
