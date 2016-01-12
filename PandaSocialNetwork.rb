@@ -1,4 +1,6 @@
 require_relative 'Panda'
+require 'rubygems'
+require 'json'
 
 class PandaSocialNetwork
   def initialize
@@ -61,11 +63,17 @@ class PandaSocialNetwork
     gender_count = 0
     @data.each do |panda, panda_friends|
       panda_friends.each { |subpanda, subfriends| gender_count += 1 if subfriends.gender == gender }
-
     end
 
     gender_count
   end
+
+  def save_json(name)
+    File.open("#{name}.json","w") do |f|
+      f.write(@data.to_json)
+    end
+  end
+
 end
 
 
@@ -95,14 +103,13 @@ network.add_panda(tony)
 network.make_friends(ivo, rado)
 network.make_friends(rado, tony)
 
-puts network.make_friends(ivo,rado)
+#puts network.make_friends(ivo,rado)
 #network.make_friends(tony, pesho)
-network.make_friends(ivo, tony)
-network.make_friends(tony, pesho)
-
+#network.make_friends(ivo, tony)
+#network.make_friends(tony, pesho)
+network.save_json("test_json")
 #true - Pesho is now added to the network, while being made friends with Rado
 #puts network.has_panda(pesho)
-
 #true
 #puts network.are_friends(ivo, rado)
 #false
