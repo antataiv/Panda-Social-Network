@@ -1,0 +1,16 @@
+{
+  "Name: Ivo, Gender: male, Email: ivo@pandamail.com": [
+    "Name: Rado, Gender: male, Email: rado@pandamail.com",
+    "Name: Tony, Gender: female, Email: tony@pandamail.com",
+    "Name: Pesho, Gender: other, Email: pesho@pandamail.com"
+  ],
+  "Name: Rado, Gender: male, Email: rado@pandamail.com": [
+    "Name: Ivo, Gender: male, Email: ivo@pandamail.com"
+  ],
+  "Name: Tony, Gender: female, Email: tony@pandamail.com": [
+    "Name: Ivo, Gender: male, Email: ivo@pandamail.com"
+  ],
+  "Name: Pesho, Gender: other, Email: pesho@pandamail.com": [
+    "Name: Ivo, Gender: male, Email: ivo@pandamail.com"
+  ]
+}

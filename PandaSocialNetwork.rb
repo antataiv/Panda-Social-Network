@@ -1,4 +1,5 @@
 require_relative 'Panda'
+require_relative 'NetworkWriter'
 
 class PandaSocialNetwork
   def initialize
@@ -61,10 +62,21 @@ class PandaSocialNetwork
     gender_count = 0
     @data.each do |panda, panda_friends|
       panda_friends.each { |subpanda, subfriends| gender_count += 1 if subfriends.gender == gender }
-      
+
     end
 
     gender_count
+  end
+
+
+  def save(file_name)
+    filedata = file_name.split('.')
+    formatter = filedata[1].upcase
+    formatter_class = Object.const_get("NetworkWriter").const_get(formatter).new
+    formatter_class.save(file_name, @data)
+  end
+
+  def load(file_name)
   end
 end
 
@@ -93,8 +105,10 @@ network.add_panda(tony)
 #puts network.has_panda(pesho)
 
 network.make_friends(ivo, rado)
+#the below line should not work
+#network.make_friends(ivo, ivo2)
 network.make_friends(ivo, tony)
-network.make_friends(tony, pesho)
+network.make_friends(ivo, pesho)
 
 #true - Pesho is now added to the network, while being made friends with Rado
 #puts network.has_panda(pesho)
@@ -118,11 +132,14 @@ network.make_friends(tony, pesho)
 #network.friends_of(pesho)
 
 #puts network.connection_level(ivo, pesho)
-#puts network.connection_level(ivo, rado) == 1 # true
-#puts network.connection_level(ivo, tony) == 2 # true
+puts network.connection_level(ivo, rado) == 1 # true
+puts network.connection_level(ivo, tony) == 1 # true
+puts network.connection_level(ivo, pesho) == 1 # true
 
 #puts network.are_connected(ivo, rado) #true
 #puts network.are_connected(ivo, tony) #false
 #puts network.are_connected(pesho, ivo) #false
 
 #network.how_many_gender_in_network(1, rado, "female")
+
+network.save("social_network.json")
