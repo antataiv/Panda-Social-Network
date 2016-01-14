@@ -16,7 +16,7 @@ class Panda
   end
 
   def to_s
-    "#{@name} is a #{@gender} panda with email: #{@email}"
+    "Name: #{@name}, Gender: #{@gender}, Email: #{@email}"
   end
 
   def ==(other)
