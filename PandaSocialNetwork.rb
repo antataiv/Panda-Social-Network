@@ -2,8 +2,18 @@ require_relative 'Panda'
 require_relative 'NetworkWriter'
 
 class PandaSocialNetwork
+
+  attr_accessor :formatters
+
   def initialize
     @data = {}
+    @formatters = Hash.new(NetworkWriter::JSON.new)
+  end
+
+  def load_file_formats
+    @formatters["JSON"] = NetworkWriter::JSON.new
+    @formatters["XML"] = NetworkWriter::XML.new
+    @formatters["YAML"] = NetworkWriter::YAML.new
   end
 
   def add_panda(panda)
@@ -71,9 +81,11 @@ class PandaSocialNetwork
 
   def save(file_name)
     filedata = file_name.split('.')
-    formatter = filedata[1].upcase
-    formatter_class = Object.const_get("NetworkWriter").const_get(formatter).new
-    formatter_class.save(file_name, @data)
+    file_format_type = filedata[1].upcase if filedata.length > 1
+    #The below line has been replaced by a methos, which loads all posible saving formats
+    #in a Hash, when an instance of "PandaSocialNetwork" is created.
+    #formatter_class = Object.const_get("NetworkWriter").const_get(formatter).new
+    @formatters[file_format_type].save(file_name, @data)
   end
 
   def load(file_name)
@@ -84,6 +96,7 @@ end
 
 
 network = PandaSocialNetwork.new
+network.load_file_formats
 ivo = Panda.new("Ivo", "ivo@pandamail.com", "male")
 ivo2 = Panda.new("Ivo", "ivo@pandamail.com", "male")
 rado = Panda.new("Rado", "rado@pandamail.com", "male")
@@ -142,4 +155,6 @@ puts network.connection_level(ivo, pesho) == 1 # true
 
 #network.how_many_gender_in_network(1, rado, "female")
 
-network.save("social_network.json")
+#network.formatters.each { |k, v| puts k, v}
+
+network.save("social_network")
