@@ -7,13 +7,13 @@ class PandaSocialNetwork
 
   def initialize
     @data = {}
-    @formatters = Hash.new(NetworkWriter::JSON.new)
+    @formatters = Hash.new(NetworkWriter::JSONSerializer.new)
   end
 
   def load_file_formats
-    @formatters["JSON"] = NetworkWriter::JSON.new
-    @formatters["XML"] = NetworkWriter::XML.new
-    @formatters["YAML"] = NetworkWriter::YAML.new
+    @formatters["JSONSerializer"] = NetworkWriter::JSONSerializer.new
+    @formatters["XMLSerializer"] = NetworkWriter::XMLSerializer.new
+    @formatters["YAMLSerializer"] = NetworkWriter::YAMLSerializer.new
   end
 
   def add_panda(panda)
@@ -81,10 +81,10 @@ class PandaSocialNetwork
 
   def save(file_name)
     filedata = file_name.split('.')
-    file_format_type = filedata[1].upcase if filedata.length > 1
+    file_format_type = filedata[1].upcase + "Serializer" if filedata.length > 1
     #The below line has been replaced by a methos, which loads all posible saving formats
     #in a Hash, when an instance of "PandaSocialNetwork" is created.
-    #formatter_class = Object.const_get("NetworkWriter").const_get(formatter).new
+    #formatter_class = Object.const_get("NetworkWriter").const_get(formatter).
     @formatters[file_format_type].save(file_name, @data)
   end
 
@@ -157,4 +157,4 @@ puts network.connection_level(ivo, pesho) == 1 # true
 
 #network.formatters.each { |k, v| puts k, v}
 
-network.save("social_network")
+network.save("social_network.xml")

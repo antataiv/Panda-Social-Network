@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<social_network>
+  <panda>Name: Ivo, Gender: male, Email: ivo@pandamail.com<friends><friend>Name: Rado, Gender: male, Email: rado@pandamail.com</friend><friend>Name: Tony, Gender: female, Email: tony@pandamail.com</friend><friend>Name: Pesho, Gender: other, Email: pesho@pandamail.com</friend></friends></panda>
+  <panda>Name: Rado, Gender: male, Email: rado@pandamail.com<friends><friend>Name: Ivo, Gender: male, Email: ivo@pandamail.com</friend></friends></panda>
+  <panda>Name: Tony, Gender: female, Email: tony@pandamail.com<friends><friend>Name: Ivo, Gender: male, Email: ivo@pandamail.com</friend></friends></panda>
+  <panda>Name: Pesho, Gender: other, Email: pesho@pandamail.com<friends><friend>Name: Ivo, Gender: male, Email: ivo@pandamail.com</friend></friends></panda>
+</social_network>

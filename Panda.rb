@@ -16,7 +16,7 @@ class Panda
   end
 
   def to_s
-    "Name: #{@name}, Gender: #{@gender}, Email: #{@email}"
+    "Name: #{name}, Gender: #{gender}, Email: #{email}"
   end
 
   def ==(other)
