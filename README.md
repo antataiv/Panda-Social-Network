@@ -1,1 +1,3 @@
-HackBulgaria Panda-Social-Network Teamwork.
+HackBulgaria Programming101-Ruby Course
+
+Panda-Social-Network Teamwork
